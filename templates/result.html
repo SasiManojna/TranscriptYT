@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .center-align {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        .center-align a {
+            margin: 10px;
+        }
+        .side-by-side {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detailed Notes</h1>
+        <h2>Summary:</h2>
+        <p>{{ summary }}</p>
+        <h2>Export the notes:</h2>
+        <div class="center-align">
+            <a class="btn" href="{{ url_for('static', filename='summary.txt') }}" download="summary.txt">Download Text</a>
+        </div>
+        <h2>Listen to the summary:</h2>
+        <div class="center-align">
+            <audio controls>
+                <source src="{{ url_for('static', filename='summary.mp3') }}" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <a class="btn" href="{{ url_for('static', filename='summary.mp3') }}" download="summary.mp3">Download Audio</a>
+        </div>
+        <div class="side-by-side">
+            <a class="btn" href="/">Go Back</a>
+            <a class="btn" href="/transcript">Video Transcript</a>
+        </div>
+    </div>
+</body>
+</html>
